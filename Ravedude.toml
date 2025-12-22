@@ -1,0 +1,12 @@
+# Based on the example of the trinket
+# https://github.com/Rahix/avr-hal/blob/ff4909c00ceee76d60f8bd7cc95bc0f3e2ab673f/ravedude/src/boards.toml#L211
+[general]
+
+[board]
+name = "attiny85"
+
+[board.avrdude]
+programmer = "usbasp"
+partno = "attiny85"
+baudrate = -1
+do-chip-erase = true
