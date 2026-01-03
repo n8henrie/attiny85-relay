@@ -16,7 +16,9 @@ fn main() -> ! {
     let mut led = pins.pb3.into_output();
 
     loop {
-        led.toggle();
-        Delay::new().delay_ms(1000_u16)
+        led.set_high();
+        Delay::new().delay_ms(4000_u16);
+        led.set_low();
+        Delay::new().delay_ms(6000_u16)
     }
 }
