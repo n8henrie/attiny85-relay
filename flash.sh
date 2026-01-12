@@ -4,6 +4,6 @@ set -Eeuf -o pipefail
 set -x
 
 main() {
-  nix develop --command cargo run --releasenixos
+  nix develop --command cargo run --release
 }
 main "$@"
