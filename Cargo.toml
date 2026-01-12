@@ -34,3 +34,11 @@ codegen-units = 1
 debug = true
 lto = true
 opt-level = "s"
+
+# Required for rust-std nix builds
+[dev-dependencies]
+object = "0.37.1"
+rustc-demangle = "0.1.26"
+rustc-literal-escaper = "0.0.5"
+# wasi = "0.14.4" # required by package `std v0.0.0 (/nix/store/wsl045mk0a06fhczxkq6w6azjyr1zvxy-rust-minimal-1.94.0-nightly-2025-12-13/lib/rustlib/src/rust/library/std)`
+wasi = "0.11.0" #  required by package `std v0.0.0 (/nix/store/wsl045mk0a06fhczxkq6w6azjyr1zvxy-rust-minimal-1.94.0-nightly-2025-12-13/lib/rustlib/src/rust/library/std)`

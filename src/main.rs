@@ -17,8 +17,8 @@ fn main() -> ! {
 
     loop {
         led.set_high();
-        Delay::new().delay_ms(4000_u16);
+        Delay::new().delay_ms(15_000_u16);
         led.set_low();
-        Delay::new().delay_ms(6000_u16)
+        Delay::new().delay_ms(5_000_u16)
     }
 }
