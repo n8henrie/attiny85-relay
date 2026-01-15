@@ -13,12 +13,17 @@ fn main() -> ! {
     let dp = attiny_hal::Peripherals::take().unwrap();
     let pins = attiny_hal::pins!(dp);
 
-    let mut led = pins.pb3.into_output();
+    let mut sensor = pins.pb3.into_output();
+    let mut power = pins.pb4.into_output();
 
     loop {
-        led.set_high();
+        power.set_high();
         Delay::new().delay_ms(15_000_u16);
-        led.set_low();
-        Delay::new().delay_ms(5_000_u16)
+        sensor.set_high();
+        Delay::new().delay_ms(8_000_u16);
+        sensor.set_low();
+        Delay::new().delay_ms(4_000_u16);
+        power.set_low();
+        Delay::new().delay_ms(2_000_u16);
     }
 }
