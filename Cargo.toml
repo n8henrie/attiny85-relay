@@ -37,8 +37,27 @@ opt-level = "s"
 
 # Required for rust-std nix builds
 [dev-dependencies]
-object = "0.37.1"
-rustc-demangle = "0.1.26"
+# object = "0.37.1"
+# rustc-demangle = "*"
 rustc-literal-escaper = "0.0.5"
-# wasi = "0.14.4" # required by package `std v0.0.0 (/nix/store/wsl045mk0a06fhczxkq6w6azjyr1zvxy-rust-minimal-1.94.0-nightly-2025-12-13/lib/rustlib/src/rust/library/std)`
-wasi = "0.11.0" #  required by package `std v0.0.0 (/nix/store/wsl045mk0a06fhczxkq6w6azjyr1zvxy-rust-minimal-1.94.0-nightly-2025-12-13/lib/rustlib/src/rust/library/std)`
+# wasi = "=0.14.4" # required by package `std v0.0.0 (/nix/store/wsl045mk0a06fhczxkq6w6azjyr1zvxy-rust-minimal-1.94.0-nightly-2025-12-13/lib/rustlib/src/rust/library/std)`
+wasi = "=0.11.1" #  required by package `std v0.0.0 (/nix/store/wsl045mk0a06fhczxkq6w6azjyr1zvxy-rust-minimal-1.94.0-nightly-2025-12-13/lib/rustlib/src/rust/library/std)`
+cfg-if = "=1.0.1"
+# hashbrown = "=0.15.5"
+rustc-demangle = "=0.1.26"
+object = "0.37.3"
+dlmalloc = "=0.2.10"
+libc = "=0.2.175"
+addr2line = "=0.25.0"
+hermit-abi = "*"
+r-efi = "*"
+r-efi-alloc = "*"
+fortanix-sgx-abi = "*"
+getopts = "*"
+unwinding = "*"
+memchr = "=2.7.5"
+wit-bindgen = "=0.45.0"
+gimli = "=0.32.0"
+
+[build-dependencies]
+wasi = "=0.14.4" # required by package `std v0.0.0 (/nix/store/wsl045mk0a06fhczxkq6w6azjyr1zvxy-rust-minimal-1.94.0-nightly-2025-12-13/lib/rustlib/src/rust/library/std)`
