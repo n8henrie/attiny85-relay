@@ -32,8 +32,9 @@ fn main() -> ! {
 
         led_reed.set_high();
 
-        // over an hour -- time for heartbeat
-        delay_secs(4_000);
+        // based on firmware heartbeat should be every ~70 minutes; let's
+        // use 75 to be safe and double this to get 2
+        delay_secs(75 * 2 * 60);
 
         sensor_power.set_low();
         delay_secs(60);
