@@ -2,8 +2,7 @@
   description = "Flash blink to an attiny85";
 
   inputs = {
-    # https://nixpkgs-tracker.ocfox.me/?pr=472986
-    nixpkgs.url = "github:nixos/nixpkgs/master";
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     rust-overlay = {
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
