@@ -9,9 +9,17 @@ type CoreClock = attiny_hal::clock::MHz1;
 type Delay = attiny_hal::delay::Delay<CoreClock>;
 
 fn delay_secs(secs: u16) {
-    const MULTIPLIER: u16 = 1_000_u16;
-    let ms = MULTIPLIER * secs;
-    Delay::new().delay_ms(ms);
+    const MAX_SECS_PER_DELAY: u16 = u16::MAX / 1_000;
+    const MAX_MS_PER_DELAY: u16 = MAX_SECS_PER_DELAY * 1_000;
+
+    let mut delay = Delay::new();
+    for _ in 0..(secs / MAX_SECS_PER_DELAY) {
+        delay.delay_ms(MAX_MS_PER_DELAY);
+    }
+    let remainder = secs % MAX_SECS_PER_DELAY;
+    if remainder != 0 {
+        delay.delay_ms(remainder * 1_000);
+    }
 }
 
 #[attiny_hal::entry]
