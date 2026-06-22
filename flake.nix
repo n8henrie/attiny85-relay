@@ -94,11 +94,19 @@
           };
         };
 
-        devShells.default = pkgs.mkShell {
-          inputsFrom = [
-            self.outputs.packages.${system}.${name}
-            self.outputs.apps.${system}.default
-          ];
+        devShells = {
+          default = pkgs.mkShell {
+            inputsFrom = [
+              self.outputs.packages.${system}.${name}
+              self.outputs.apps.${system}.default
+            ];
+          };
+          ravedude = pkgs.mkShell {
+            packages = with pkgs; [
+              pkgsCross.avr.buildPackages.gcc
+              ravedude
+            ];
+          };
         };
       }
     );
