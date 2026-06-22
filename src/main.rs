@@ -24,12 +24,13 @@ fn main() -> ! {
 
     loop {
         sensor_power.set_high();
+        led_reed.set_high();
         delay_secs(10);
 
-        led_reed.set_high();
+        led_reed.set_low();
         delay_secs(4);
 
-        led_reed.set_low();
+        led_reed.set_high();
 
         // over an hour -- time for heartbeat
         delay_secs(4_000);
