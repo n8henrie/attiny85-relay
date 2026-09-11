@@ -30,21 +30,11 @@ fn main() -> ! {
     let mut led_reed = pins.pb3.into_output();
     let mut sensor_power = pins.pb4.into_output();
 
+    sensor_power.set_high();
     loop {
-        sensor_power.set_high();
         led_reed.set_high();
-        delay_secs(10);
-
+        delay_secs(3);
         led_reed.set_low();
-        delay_secs(4);
-
-        led_reed.set_high();
-
-        // based on firmware heartbeat should be every ~70 minutes; let's
-        // use 75 to be safe and double this to get 2
-        delay_secs(75 * 2 * 60);
-
-        sensor_power.set_low();
-        delay_secs(60);
+        delay_secs(3);
     }
 }
