@@ -1,5 +1,4 @@
 {
-  rustc,
   lib,
   rustPlatform,
   avrGcc,
@@ -11,10 +10,9 @@ rustPlatform.buildRustPackage {
   pname = name;
   inherit version;
   src = lib.cleanSource ./.;
-  env = {
-    RUSTC_BOOTSTRAP = "1";
-    RUST_SRC_PATH = "${rustc.src}/library";
-  };
+
+  env.RUSTC_BOOTSTRAP = "1";
+
   nativeBuildInputs = [ avrGcc ];
   cargoLock = {
     lockFile = ./Cargo.lock;
