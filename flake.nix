@@ -28,6 +28,7 @@
         packages = {
           default = self.packages.${system}.${name};
           ${name} = pkgs.callPackage ./package.nix {
+            avrGcc = pkgs.pkgsCross.avr.buildPackages.gcc;
             rustPlatform = pkgs.callPackage ./rustplatform-with-src.nix { };
           };
         };

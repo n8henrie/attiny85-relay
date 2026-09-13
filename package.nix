@@ -2,11 +2,10 @@
   rustc,
   lib,
   rustPlatform,
-  pkgsCross,
+  avrGcc,
 }:
 let
   inherit ((lib.importTOML ./Cargo.toml).package) name version description;
-  inherit (pkgsCross) avr;
 in
 rustPlatform.buildRustPackage {
   pname = name;
@@ -16,7 +15,7 @@ rustPlatform.buildRustPackage {
     RUSTC_BOOTSTRAP = "1";
     RUST_SRC_PATH = "${rustc.src}/library";
   };
-  nativeBuildInputs = [ avr.gcc ];
+  nativeBuildInputs = [ avrGcc ];
   cargoLock = {
     lockFile = ./Cargo.lock;
     outputHashes."attiny-hal-0.1.0" = "sha256-dT4ClJC2eysro92JSuLVGRINGzgkxKZQjBad/UxVDd0=";
