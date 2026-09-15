@@ -28,7 +28,6 @@ rustPlatform.buildRustPackage {
     runHook preBuild
 
     cargo build --release \
-      --target avr-none \
       --frozen \
       -Zbuild-std=core \
       --jobs "$NIX_BUILD_CORES"
