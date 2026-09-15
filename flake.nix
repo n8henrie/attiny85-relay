@@ -53,21 +53,13 @@
           };
         };
 
-        devShells = {
-          default = pkgs.mkShell {
-            inputsFrom = [
-              self.outputs.packages.${system}.${name}
-              self.outputs.apps.${system}.default
-            ];
-            packages = [ pkgs.ravedude ];
-            env.RUSTC_BOOTSTRAP = "1";
-          };
-          ravedude = pkgs.mkShell {
-            packages = with pkgs; [
-              pkgsCross.avr.buildPackages.gcc
-              ravedude
-            ];
-          };
+        devShells.default = pkgs.mkShell {
+          inputsFrom = [
+            self.outputs.packages.${system}.${name}
+            self.outputs.apps.${system}.default
+          ];
+          packages = [ pkgs.ravedude ];
+          env.RUSTC_BOOTSTRAP = "1";
         };
       }
     );
