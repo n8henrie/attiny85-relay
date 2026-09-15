@@ -59,6 +59,7 @@
               self.outputs.packages.${system}.${name}
               self.outputs.apps.${system}.default
             ];
+            packages = [ pkgs.ravedude ];
             env.RUSTC_BOOTSTRAP = "1";
           };
           ravedude = pkgs.mkShell {
